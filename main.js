@@ -45,4 +45,29 @@
   // Current year
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // About section video playlist
+  const videoSources = [
+    'assets/videos/IMG_2090.MOV',
+    'assets/videos/IMG_2091.MOV',
+    'assets/videos/IMG_2092.MOV',
+    'assets/videos/IMG_2093.MOV',
+    'assets/videos/IMG_2094.MOV',
+    'assets/videos/IMG_2095.MOV',
+    'assets/videos/IMG_2096.MOV',
+    'assets/videos/IMG_2097.MOV',
+    'assets/videos/IMG_2103.MOV',
+    'assets/videos/IMG_2104.MOV',
+    'assets/videos/IMG_2105.MOV',
+  ];
+  const aboutVideo = document.getElementById('aboutVideo');
+  if (aboutVideo && videoSources.length) {
+    let current = 0;
+    aboutVideo.src = videoSources[current];
+    aboutVideo.addEventListener('ended', function () {
+      current = (current + 1) % videoSources.length;
+      aboutVideo.src = videoSources[current];
+      aboutVideo.play();
+    });
+  }
 })();
