@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  // Mobile menu toggle
+  // Mobile menu
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
   if (navToggle && navLinks) {
@@ -9,7 +9,6 @@
       navLinks.classList.toggle('open');
       navToggle.setAttribute('aria-expanded', navLinks.classList.contains('open'));
     });
-    // Close menu on link click
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => navLinks.classList.remove('open'));
     });
@@ -19,18 +18,14 @@
   const nav = document.getElementById('nav');
   function onScroll() {
     if (!nav) return;
-    if (window.scrollY > 40) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
+    nav.classList.toggle('scrolled', window.scrollY > 40);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
   // Reveal on scroll
   const revealElements = () => {
-    const reveals = document.querySelectorAll('.about-card, .tech-group, .project-card, .contact-card');
+    const reveals = document.querySelectorAll('.about-box, .service-card, .tech-card, .project-card, .contact-card');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -38,16 +33,16 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach((el, i) => {
       el.classList.add('reveal');
-      el.style.transitionDelay = `${i * 0.08}s`;
+      el.style.transitionDelay = `${i * 0.06}s`;
       observer.observe(el);
     });
   };
   revealElements();
 
-  // Current year in footer
+  // Current year
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
