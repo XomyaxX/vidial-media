@@ -48,6 +48,7 @@
 
   // About section video playlist
   const videoSources = [
+    'assets/videos/0608.mp4',
     'assets/videos/IMG_2090.MOV',
     'assets/videos/IMG_2091.MOV',
     'assets/videos/IMG_2092.MOV',

@@ -111,8 +111,13 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 700;
   color: var(--dark);
 }
-.logo-img {
-  height: 28px;
+.logo-icon-img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+.logo-text-img {
+  height: 24px;
   width: auto;
   display: block;
 }
@@ -207,12 +212,14 @@ img { max-width: 100%; height: auto; display: block; }
   letter-spacing: 1px;
 }
 .hero-title {
-  font-family: 'Comfortaa', cursive;
-  font-size: clamp(42px, 8vw, 80px);
-  font-weight: 700;
-  color: var(--dark);
-  line-height: 1.05;
   margin-bottom: 16px;
+  line-height: 1;
+}
+.hero-title-img {
+  height: clamp(36px, 6vw, 64px);
+  width: auto;
+  display: block;
+  margin: 0 auto;
 }
 .hero-subtitle {
   font-size: clamp(16px, 2.4vw, 22px);
