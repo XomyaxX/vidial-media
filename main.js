@@ -16,9 +16,13 @@
 
   // Nav background on scroll
   const nav = document.getElementById('nav');
+  const logoIcon = document.querySelector('.logo-icon-img');
   function onScroll() {
     if (!nav) return;
     nav.classList.toggle('scrolled', window.scrollY > 40);
+    if (logoIcon) {
+      logoIcon.classList.toggle('logo-large', window.scrollY < 100);
+    }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
