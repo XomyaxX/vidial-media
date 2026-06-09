@@ -295,16 +295,12 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-image {
   position: absolute;
   right: 5%;
-  bottom: 40px;
+  bottom: 0;
   z-index: 1;
   max-width: 420px;
   width: 35vw;
   pointer-events: none;
   animation: fadeInUp 1s var(--ease-smooth) .3s both;
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  padding: 24px;
-  box-shadow: var(--shadow-lg);
 }
 .hero-image img {
   width: 100%;
