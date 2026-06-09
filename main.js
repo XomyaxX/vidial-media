@@ -14,17 +14,41 @@
     });
   }
 
-  // Nav background on scroll
+  // Nav background on scroll + FLIP logo animation
   const nav = document.getElementById('nav');
-  const logoIcon = document.querySelector('.logo-icon-img');
+  const heroLogo = document.querySelector('.hero-logo-icon');
+  const navLogo = document.querySelector('.logo-icon-img');
+  let flip = null;
+
+  function calcFlip() {
+    if (!heroLogo || !navLogo) return;
+    const h = heroLogo.getBoundingClientRect();
+    const n = navLogo.getBoundingClientRect();
+    flip = {
+      dx: n.left - h.left + (n.width - h.width) / 2,
+      dy: n.top - h.top + (n.height - h.height) / 2,
+      scale: n.width / h.width
+    };
+  }
+
   function onScroll() {
     if (!nav) return;
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-    if (logoIcon) {
-      logoIcon.classList.toggle('logo-large', window.scrollY < 100);
+    const scrolled = window.scrollY > 40;
+    nav.classList.toggle('scrolled', scrolled);
+
+    if (heroLogo && navLogo && flip) {
+      const maxScroll = 120;
+      const progress = Math.min(Math.max(window.scrollY / maxScroll, 0), 1);
+      heroLogo.style.transform = `translate(${flip.dx * progress}px, ${flip.dy * progress}px) scale(${1 - (1 - flip.scale) * progress})`;
+      heroLogo.style.opacity = 1 - progress;
+      navLogo.style.opacity = progress;
     }
   }
+
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', calcFlip);
+  window.addEventListener('load', calcFlip);
+  calcFlip();
   onScroll();
 
   // Reveal on scroll

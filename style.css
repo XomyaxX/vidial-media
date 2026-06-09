@@ -173,10 +173,8 @@ img { max-width: 100%; height: auto; display: block; }
   height: 36px;
   width: auto;
   display: block;
-  transition: height .35s var(--ease-smooth);
-}
-.logo-icon-img.logo-large {
-  height: 80px;
+  opacity: 0;
+  transition: opacity 0.15s;
 }
 .logo-text-img {
   height: 24px;
@@ -277,11 +275,12 @@ img { max-width: 100%; height: auto; display: block; }
   margin-bottom: 16px;
   line-height: 1;
 }
-.hero-title-img {
-  height: clamp(36px, 6vw, 64px);
+.hero-logo-icon {
+  height: 100px;
   width: auto;
   display: block;
   margin: 0 auto;
+  will-change: transform, opacity;
 }
 .hero-subtitle {
   font-size: clamp(16px, 2.4vw, 22px);
