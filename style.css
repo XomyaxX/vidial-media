@@ -46,6 +46,17 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0 auto;
   padding: 0 24px;
 }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 /* ─── DECORATIONS ─── */
 .deco {
@@ -621,6 +632,17 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--dark);
   color: rgba(255,255,255,0.6);
   font-size: 13px;
+}
+.footer-content p {
+  margin: 6px 0;
+}
+.footer-content a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.footer-content a:hover {
+  color: #fff;
 }
 
 /* ─── ANIMATIONS ─── */

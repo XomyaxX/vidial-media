@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/videos/
+
+Sitemap: https://vidial-media.ru/sitemap.xml
